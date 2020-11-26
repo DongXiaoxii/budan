@@ -10,6 +10,11 @@ module.exports = {
    * webpack配置,see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
    **/
   chainWebpack: config => {
+  congig.module.
+    rule('/\.css$/i').
+        use('style-loader', 'css-loader')
+  },
+  chainWebpack: config => {
     const svgRule = config.module.rule("svg");
     svgRule.uses.clear();
     svgRule
@@ -44,13 +49,15 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       sass: {
-        // data: `@import"./src/styles/main.scss";`
         prependData:`@import"./src/styles/main.scss";`
       }
     },
     // 启用 CSS modules for all css / pre-processor files.
     modules: false
   },
+ 
+    
+
   // use thread-loader for babel & TS in production build
   // enabled by default if the machine has more than 1 cores
   parallel: require("os").cpus().length > 1,
